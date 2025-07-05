@@ -12,10 +12,10 @@ export default function Page() {
     if (userInput.length === pattern.length && pattern.length > 0) {
       if (userInput.join() === pattern.join()) {
         setScore(score + level * 10);
-        setStatus("Correct! Next level.");
+        setStatus("✅ Correct! Next level.");
         setTimeout(() => nextLevel(), 1000);
       } else {
-        setStatus("Wrong pattern! Game Over.");
+        setStatus("❌ Wrong pattern! Game Over.");
         resetGame();
       }
     }
@@ -53,18 +53,29 @@ export default function Page() {
   };
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>NFT Heist - Pattern Challenge</h1>
-      <p>Level: {level} | Score: {score}</p>
-      <p>{status}</p>
-      <div style={{ margin: '20px' }}>
+    <div className="text-center space-y-6">
+      <h1 className="text-4xl font-bold">NFT Heist - Pattern Challenge</h1>
+      <p className="text-lg">Level: <span className="font-semibold">{level}</span> | Score: <span className="font-semibold">{score}</span></p>
+      <p className="text-lg italic">{status}</p>
+
+      <div className="flex justify-center gap-4">
         {["🔴", "🟢", "🔵", "🟡"].map(symbol => (
-          <button key={symbol} onClick={() => handleClick(symbol)} style={{ fontSize: '2rem', margin: '5px' }}>
+          <button
+            key={symbol}
+            onClick={() => handleClick(symbol)}
+            className="text-3xl p-4 bg-white/20 hover:bg-white/30 rounded-full transition"
+          >
             {symbol}
           </button>
         ))}
       </div>
-      <button onClick={startGame}>Start Game</button>
+
+      <button
+        onClick={startGame}
+        className="mt-4 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-md transition"
+      >
+        Start Game
+      </button>
     </div>
   );
 }
