@@ -53,7 +53,8 @@ export default function Page() {
   };
 
   return (
-    <div className="text-center space-y-6">
+    <div className="text-3xl p-4 bg-white/20 hover:bg-white/30 rounded-full transition"
+>
       <h1 className="text-4xl font-bold">NFT Heist - Pattern Challenge</h1>
       <p className="text-lg">Level: <span className="font-semibold">{level}</span> | Score: <span className="font-semibold">{score}</span></p>
       <p className="text-lg italic">{status}</p>
