@@ -64,7 +64,9 @@ export default function Page() {
           <button
             key={symbol}
             onClick={() => handleClick(symbol)}
+            className="text-center space-y-6"
             className="text-3xl p-4 bg-white/20 hover:bg-white/30 rounded-full transition"
+
           >
             {symbol}
           </button>
